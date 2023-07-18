@@ -1,0 +1,19 @@
+# my-app-ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-app-ingress
+  namespace: my-app-namespace
+  annotations:
+    kubernetes.io/ingress.class: alb  # ALB Ingress Controller annotation
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /statics.html  # Prefix to match incoming requests
+            pathType: Prefix
+            backend:
+              service:
+                name: my-app-service
+                port:
+                  number: 80

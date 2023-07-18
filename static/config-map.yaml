@@ -1,0 +1,18 @@
+# my-app-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-app-configmap
+  namespace: my-app-namespace
+data:
+  custom.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Custom Statics Page</title>
+    </head>
+    <body>
+        <h1>Welcome to the custom statics page!</h1>
+        <p>This content is served by Nginx running on EKS.</p>
+    </body>
+    </html>
